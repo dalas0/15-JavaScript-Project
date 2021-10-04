@@ -1,0 +1,102 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+    /* border: 1px solid black; */
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(243, 243, 243);
+}
+
+.container .card {
+    position: relative;
+    top: 20vh;
+    width: 600px;
+    height: 450px;
+    margin: 30px;
+    box-shadow: 0px 0px 10px black;
+    border-radius: 10px;
+    background-color: white;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    text-align: center;
+}
+
+img {
+    display: block;
+    height: 150px;
+    width: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin: auto;
+}
+
+h2 {
+    margin-top: 15px;
+    font-size: 18px;
+    letter-spacing: 2px;
+}
+
+h3 {
+    font-size: 13px;
+    color: lightskyblue;
+    margin: 5px;
+}
+
+p {
+    margin-top: 15px;
+}
+
+ul {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+ul .prev {
+    list-style: none;
+    width: 10px;
+    height: 10px;
+    border: 3px solid lightskyblue;
+    border-top: none;
+    border-right: none;
+    transform: rotate(45deg);
+    cursor: pointer;
+}
+
+ul .next {
+    list-style: none;
+    width: 10px;
+    height: 10px;
+    border: 3px solid lightskyblue;
+    border-top: none;
+    border-left: none;
+    transform: rotate(-45deg);
+    cursor: pointer;
+}
+
+button {
+    margin-top: 10px;
+    background-color: transparent;
+    padding: 3px 5px;
+    border-radius: 10px;
+    color: lightskyblue;
+    border: 2px solid lightskyblue;
+    cursor: pointer;
+}
+
+h1 {
+    font-size: 40px;
+    letter-spacing: 3px;
+    position: absolute;
+    text-align: center;
+    left: 50%;
+    top: 80px;
+    transform: translate(-50%, -50%);
+}
