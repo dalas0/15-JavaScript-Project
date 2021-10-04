@@ -1,36 +1,56 @@
-const decrease = document.querySelector('.decrease')
-const reset = document.querySelector('.reset')
-const increase = document.querySelector('.increase')
-const h2 = document.querySelector('h2')
+const next = document.querySelector('.next')
+const prev = document.querySelector('.prev')
+const btn = document.querySelector('button')
 
-let number = 0;
+let img = document.querySelector('img')
+let name = document.querySelector('h2')
+let profession = document.querySelector('h3')
+let about = document.querySelector('p')
 
-const changeTextNumber = () => {
-    h2.textContent = number
-    if (number === 0) {
-        h2.style.color = 'rgb(41, 41, 41)';
-    } else if (number > 0) {
-        h2.style.color = 'green'
-    } else {
-        h2.style.color = 'red'
-    }
+//klasa przechowująca wartości osób
+const person = {
+    name : ['Houcine Ahey', 'Kelly Alsen', 'Peter Jones'],
+    img : ['img/houcine.jpg', 'img/kelly.jpg', 'img/peter.jpg'],
+    profession : ['WEB DEWELOPER', 'INTERN', 'UX DESIGNER'],
+    about : ['Mauris risus nulla, finibus nec sollicitudin non, vestibulum quis urna. Pellentesque rhoncus feugiat nibh, et consequat leo euismod eu. Fusce ut libero urna', 'Nullam mollis placerat neque at lobortis.', 'Donec condimentum tempor lectus at faucibus. Etiam accumsan nibh ligula, vitae placerat erat cursus a.']
 }
 
-const resetNumber = () => {
-    number = 0
-    changeTextNumber()
-}
+//zmienna przechowujaca numer osoby
+let number = 0
 
-const decreaseNumber = () => {
-    number--
-    changeTextNumber()
-}
+// funkcja zmieniajaca wartośc danych w zależnosci od nuemru osoby
+const changePerson = () => {
+    about.textContent = person.about[number]
+    profession.textContent = person.profession[number]
+    name.textContent = person.name[number]
+    img.src = person.img[number]
 
-const increaseNumber = () => {
+}
+//przejscie do anstępnej osoby (zwiększenie numeru osoby o 1)
+const nextPerson = () => {
     number++
-    changeTextNumber()
+    if (number >= person.about.length) {
+        number = 0
+    }
+    changePerson()
 }
 
-reset.addEventListener('click', resetNumber)
-decrease.addEventListener('click', decreaseNumber)
-increase.addEventListener('click', increaseNumber)
+//powrót do poprzedniej osoby (zmniejszenie numeru osoby o 1)
+const prevPerson = () => {
+    number--
+    if (number < 0) {
+        number = person.name.length-1
+    }
+    changePerson()
+}
+
+//losowanie numeru osoby
+const randomPerson = () => {
+    number = Math.floor(Math.random()*person.name.length)
+    changePerson()
+}
+
+//nasłuchiwanie strzałek oraz przycisku
+next.addEventListener('click', nextPerson)
+prev.addEventListener('click', prevPerson)
+btn.addEventListener('click', randomPerson)
